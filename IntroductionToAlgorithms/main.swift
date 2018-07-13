@@ -8,13 +8,9 @@
 
 import Foundation
 
-QuickSort.main()
-//let quickSort = QuickSort()
-//
-//var arr: [UInt32] = (0..<1000000).map { _ in arc4random() % 1000000 }
-//
-//let date = Date()
-//quickSort.sort(&arr)
-////arr.sort()
-//print(Date().timeIntervalSince(date))
+
+let table = Hashtable<Int, Any>.init(capacity: 42)
+
+table[0] = 1234
+table[1] = 234234
 
