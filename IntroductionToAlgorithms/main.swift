@@ -13,4 +13,3 @@ let table = Hashtable<Int, Any>.init(capacity: 42)
 
 table[0] = 1234
 table[1] = 234234
-
