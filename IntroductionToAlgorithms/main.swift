@@ -9,7 +9,10 @@
 import Foundation
 
 
-let table = Hashtable<Int, Any>.init(capacity: 42)
+let tree = BinarySearchTree<Int>()
 
-table[0] = 1234
-table[1] = 234234
+for _ in 0..<100000 {
+    tree.insert(Int(arc4random() % 100000))
+}
+
+print(tree)
