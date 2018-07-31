@@ -8,19 +8,36 @@
 
 import Foundation
 
-class BinarySearchTreeNode<T: Comparable & CustomStringConvertible> {
+typealias TreeElement = Comparable & CustomStringConvertible
+class BinarySearchTreeNode<T: TreeElement> {
     typealias Node = BinarySearchTreeNode<T>
-    
+
     var parent: Node?
     var left: Node?
     var right: Node?
     var key: T?
     
-    init(_ key: T? = nil, parent: Node? = nil, left: Node? = nil, right: Node? = nil) {
+    enum Color: Int {
+        case red
+        case black
+    }
+    
+    var color: Color = .black
+    
+    var isRed: Bool {
+        return color == .red
+    }
+    
+    var isBlack: Bool {
+        return !isRed
+    }
+
+    init(_ key: T? = nil, parent: Node? = nil, left: Node? = nil, right: Node? = nil, color: Color = .black) {
         self.key = key
         self.parent = parent
         self.left = left
         self.right = right
+        self.color = color
     }
     
     func min() -> Node? {
@@ -84,42 +101,35 @@ class BinarySearchTreeNode<T: Comparable & CustomStringConvertible> {
 
 }
 
-class BinarySearchTree<T: Comparable & CustomStringConvertible >: CustomStringConvertible {
+class BinarySearchTree<T: TreeElement>: CustomStringConvertible, CustomDebugStringConvertible {
     /** Binary search tree node */
     typealias Node = BinarySearchTreeNode<T>
     
     var root: Node?
     
-    @discardableResult
-    func insert(_ key: T) -> Node? {
-        if let root = root {
-            return insert(key, in: root)
-        } else {
-            root = Node(key)
-            return root
-        }
+    func insert(_ key: T) {
+        root = insert(key, in: root, withParent: nil)
     }
     
+    /**
+     - parameter key: key value to insert.
+     - parameter node: Root node to insert to.
+     - returns: Node you pass into or a new node to insert.
+     */
     @discardableResult
-    private func insert(_ key: T, `in` node: Node?) -> Node? {
+    internal func insert(_ key: T, `in` node: Node?, withParent parent: Node?) -> Node {
         guard let node = node,
-            let nodeKey = node.key else { return nil }
-        
-        if key == nodeKey {
-            return nil
-        } else if key < nodeKey, let left = node.left {
-            return insert(key, in: left)
-        } else if key < nodeKey /* left is nil */{
-            let newNode = Node(key, parent: node)
-            node.left = newNode
-            return newNode
-        } else if key > nodeKey, let right = node.right {
-            return insert(key, in: right)
-        } else {
-            let newNode = Node(key, parent: node)
-            node.right = newNode
-            return newNode
+            let nodeKey = node.key else {
+                return Node(key, parent: parent, color: .red)
         }
+        
+        if key < nodeKey {
+            node.left = insert(key, in: node.left, withParent: node)
+        } else if key > nodeKey {
+            node.right = insert(key, in: node.right, withParent: node)
+        }
+        
+        return node
     }
     
     @discardableResult
@@ -149,9 +159,41 @@ class BinarySearchTree<T: Comparable & CustomStringConvertible >: CustomStringCo
         return root?.max()
     }
 
-    func remove(_ key: T) {
+    internal func transplant(_ node: Node?, with otherNode: Node?) {
+        guard let node = node else { return }
+        if node.parent == nil {
+            root = otherNode
+        } else if node === node.parent?.left /* node is left child */ {
+            node.parent?.left = otherNode
+        } else /* node is right child */ {
+            node.parent?.right = otherNode
+        }
+        otherNode?.parent = node.parent
     }
     
+    @discardableResult
+    func remove(_ key: T) -> Bool {
+        guard let node = search(key) else {
+            return false
+        }
+        
+        if node.left == nil {
+            transplant(node, with: node.right)
+        } else if node.right == nil {
+            transplant(node, with: node.left)
+        } else /* both have left and right child */{
+            guard let successor = node.right?.min() else { return false }
+            transplant(successor, with: successor.right)
+            transplant(node, with: successor)
+            successor.left = node.left
+            successor.left?.parent = successor
+            successor.right = node.right
+            successor.right?.parent = successor
+        }
+
+        return true
+    }
+
     var height: Int {
         return height(of: root)
     }
@@ -174,5 +216,26 @@ class BinarySearchTree<T: Comparable & CustomStringConvertible >: CustomStringCo
         var nodes = [Node]()
         root?.inorder { nodes.append($0) }
         return "[" + nodes.map{ $0.key?.description ?? "nil" }.joined(separator: ", ") + "]"
+    }
+    
+    var debugDescription: String {
+        func edge(of node: Node?, length: Int = 1) -> String {
+            var unit = "-"
+            if let node = node, node.isRed {
+                unit = "="
+            }
+            return [String](repeating: unit, count: length).joined()
+        }
+        
+        var nodes = [Node]()
+        root?.prevorder { nodes.append($0) }
+        let nodesDescription = nodes.map({ (node) -> String in
+            let left = node.left?.key?.description ?? "nil"
+            let right = node.right?.key?.description ?? "nil"
+            let key = node.key?.description ?? "nil"
+            let parent = node.parent?.key?.description ?? "root"
+            return [parent, "\(edge(of: node, length: 2))", "(", left, "<\(edge(of: node.left))", key, "\(edge(of: node.right))>", right, ")"].joined(separator: " ")
+        })
+        return "[" + nodesDescription.joined(separator: ", ") + "]"
     }
 }

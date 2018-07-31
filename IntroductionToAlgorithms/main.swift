@@ -11,8 +11,16 @@ import Foundation
 
 let tree = BinarySearchTree<Int>()
 
-for _ in 0..<100000 {
-    tree.insert(Int(arc4random() % 100000))
+for i in 0..<1000 {
+    tree.insert(i)
 }
 
-print(tree)
+print(tree.height)
+
+let rbTree = RedBlackTree<Int>()
+
+for i in 0..<1000 {
+    rbTree.insert(i)
+}
+
+print(rbTree.height)
