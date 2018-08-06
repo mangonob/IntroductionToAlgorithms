@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4A4A972921106B710034EE5A /* RedBlackTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A972821106B710034EE5A /* RedBlackTree.swift */; };
 		4A5456992105686100332161 /* BinarySearchTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5456982105686100332161 /* BinarySearchTree.swift */; };
+		4A5DC48F2122D2800063D8F9 /* TreapTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5DC48E2122D2800063D8F9 /* TreapTree.swift */; };
 		4A7236C720F277FA009BD692 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7236C620F277FA009BD692 /* main.swift */; };
 		4A7236CE20F27985009BD692 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7236CD20F27985009BD692 /* Sort.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		4A4A972821106B710034EE5A /* RedBlackTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedBlackTree.swift; sourceTree = "<group>"; };
 		4A5456982105686100332161 /* BinarySearchTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarySearchTree.swift; sourceTree = "<group>"; };
+		4A5DC48E2122D2800063D8F9 /* TreapTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreapTree.swift; sourceTree = "<group>"; };
 		4A7236C320F277FA009BD692 /* IntroductionToAlgorithms */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = IntroductionToAlgorithms; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A7236C620F277FA009BD692 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4A7236CD20F27985009BD692 /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 			children = (
 				4A7236C620F277FA009BD692 /* main.swift */,
 				4A7236CD20F27985009BD692 /* Sort.swift */,
+				4A5DC48E2122D2800063D8F9 /* TreapTree.swift */,
 				4A5456982105686100332161 /* BinarySearchTree.swift */,
 				4A4A972821106B710034EE5A /* RedBlackTree.swift */,
 			);
@@ -133,6 +136,7 @@
 				4A4A972921106B710034EE5A /* RedBlackTree.swift in Sources */,
 				4A7236CE20F27985009BD692 /* Sort.swift in Sources */,
 				4A5456992105686100332161 /* BinarySearchTree.swift in Sources */,
+				4A5DC48F2122D2800063D8F9 /* TreapTree.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

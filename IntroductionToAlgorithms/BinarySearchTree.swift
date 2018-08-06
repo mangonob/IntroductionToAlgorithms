@@ -31,7 +31,7 @@ class BinarySearchTreeNode<T: TreeElement> {
     var isBlack: Bool {
         return !isRed
     }
-
+    
     init(_ key: T? = nil, parent: Node? = nil, left: Node? = nil, right: Node? = nil, color: Color = .black) {
         self.key = key
         self.parent = parent
@@ -40,12 +40,16 @@ class BinarySearchTreeNode<T: TreeElement> {
         self.color = color
     }
     
-    func min() -> Node? {
-        return self.left?.min() ?? self
-    }
-    
-    func max() -> Node? {
-        return self.right?.max() ?? self
+    var brother: Node? {
+        guard let parent = parent else { return nil }
+        
+        if self === parent.left {
+            return parent.right
+        } else if self === parent.right {
+            return parent.left
+        }
+        
+        return nil
     }
     
     typealias Handler = (Node) -> Void
@@ -66,39 +70,6 @@ class BinarySearchTreeNode<T: TreeElement> {
         right?.postorder(handler)
         handler?(self)
     }
-    
-    func successor() -> Node? {
-        if let right = right {
-            return right.min()
-        } else {
-            var parent: Node? = self.parent
-            var children: Node? = self
-            
-            while parent != nil && parent?.right === children {
-                children = parent
-                parent = parent?.parent
-            }
-            
-            return parent
-        }
-    }
-    
-    func predecessor() -> Node? {
-        if let left = left {
-            return left.max()
-        } else {
-            var parent: Node? = self.parent
-            var children: Node? = self
-            
-            while parent != nil && parent?.left === children {
-                children = parent
-                parent = parent?.parent
-            }
-            
-            return parent
-        }
-    }
-
 }
 
 class BinarySearchTree<T: TreeElement>: CustomStringConvertible, CustomDebugStringConvertible {
@@ -152,11 +123,59 @@ class BinarySearchTree<T: TreeElement>: CustomStringConvertible, CustomDebugStri
     }
     
     func min() -> Node? {
-        return root?.min()
+        return min(of: root)
     }
 
     func max() -> Node? {
-        return root?.max()
+        return max(of: root)
+    }
+
+    func min(of node: Node?) -> Node? {
+        if let left = node?.left {
+            return min(of: left)
+        } else {
+            return node
+        }
+    }
+    
+    func max(of node: Node?) -> Node? {
+        if let right = node?.right {
+            return max(of: right)
+        } else {
+            return node
+        }
+    }
+
+    func successor(of node: Node?) -> Node? {
+        if let right = node?.right {
+            return min(of: right)
+        } else {
+            var parent: Node? = node?.parent
+            var children: Node? = node
+            
+            while parent != nil && parent?.right === children {
+                children = parent
+                parent = parent?.parent
+            }
+            
+            return parent
+        }
+    }
+    
+    func predecessor(of node: Node?) -> Node? {
+        if let left = node?.left {
+            return max(of: left)
+        } else {
+            var parent: Node? = node?.parent
+            var children: Node? = node
+            
+            while parent != nil && parent?.left === children {
+                children = parent
+                parent = parent?.parent
+            }
+            
+            return parent
+        }
     }
 
     internal func transplant(_ node: Node?, with otherNode: Node?) {
@@ -170,7 +189,7 @@ class BinarySearchTree<T: TreeElement>: CustomStringConvertible, CustomDebugStri
         }
         otherNode?.parent = node.parent
     }
-    
+
     @discardableResult
     func remove(_ key: T) -> Bool {
         guard let node = search(key) else {
@@ -182,7 +201,7 @@ class BinarySearchTree<T: TreeElement>: CustomStringConvertible, CustomDebugStri
         } else if node.right == nil {
             transplant(node, with: node.left)
         } else /* both have left and right child */{
-            guard let successor = node.right?.min() else { return false }
+            guard let successor = successor(of: node) else { return false }
             transplant(successor, with: successor.right)
             transplant(node, with: successor)
             successor.left = node.left
@@ -193,16 +212,29 @@ class BinarySearchTree<T: TreeElement>: CustomStringConvertible, CustomDebugStri
 
         return true
     }
-
+    
     var height: Int {
-        return height(of: root)
+        return maxHeight
     }
 
-    private func height(of node: Node?) -> Int {
+    var maxHeight: Int {
+        return maxHeight(of: root)
+    }
+
+    private func maxHeight(of node: Node?) -> Int {
         guard let node = node else { return 0 }
-        return Swift.max(height(of: node.left), height(of: node.right)) + 1
+        return Swift.max(maxHeight(of: node.left), maxHeight(of: node.right)) + 1
     }
     
+    var minHeight: Int {
+        return minHeight(of: root)
+    }
+    
+    private func minHeight(of node: Node?) -> Int {
+        guard let node = node else { return 0 }
+        return Swift.min(minHeight(of: node.left), minHeight(of: node.right)) + 1
+    }
+
     var count: Int {
         return count(of: root)
     }
@@ -214,7 +246,7 @@ class BinarySearchTree<T: TreeElement>: CustomStringConvertible, CustomDebugStri
 
     var description: String {
         var nodes = [Node]()
-        root?.inorder { nodes.append($0) }
+        root?.inorder { if $0.key != nil { nodes.append($0) } }
         return "[" + nodes.map{ $0.key?.description ?? "nil" }.joined(separator: ", ") + "]"
     }
     
@@ -228,7 +260,7 @@ class BinarySearchTree<T: TreeElement>: CustomStringConvertible, CustomDebugStri
         }
         
         var nodes = [Node]()
-        root?.prevorder { nodes.append($0) }
+        root?.prevorder { if $0.key != nil { nodes.append($0) } }
         let nodesDescription = nodes.map({ (node) -> String in
             let left = node.left?.key?.description ?? "nil"
             let right = node.right?.key?.description ?? "nil"

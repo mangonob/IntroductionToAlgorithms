@@ -8,19 +8,22 @@
 
 import Foundation
 
+let treapTree = TreapTree<Int>()
 
-let tree = BinarySearchTree<Int>()
+let total = 100000
 
-for i in 0..<1000 {
-    tree.insert(i)
+var old = Date()
+print("Start insert")
+for i in 0..<total {
+    treapTree.insert(i)
 }
+print("End insert used: \(Date().timeIntervalSince(old))s")
+print(treapTree.minHeight)
+print(treapTree.maxHeight)
 
-print(tree.height)
-
-let rbTree = RedBlackTree<Int>()
-
-for i in 0..<1000 {
-    rbTree.insert(i)
+old = Date()
+print("Start remove")
+for i in 0..<total {
+    treapTree.remove(i)
 }
-
-print(rbTree.height)
+print("End insert used: \(Date().timeIntervalSince(old))s")
