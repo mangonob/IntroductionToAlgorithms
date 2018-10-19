@@ -12,7 +12,7 @@ class Sort {
     func sort<T: Comparable>(_ arr: inout [T]) { fatalError("Have not implement.")}
 }
 
-class QuickSort: Sort {
+class QuickSort: Sort, Routine {
     override func sort<T>(_ arr: inout [T]) where T : Comparable {
         quickSort(UnsafeMutablePointer<T>.init(&arr), count: arr.count)
     }
@@ -45,8 +45,8 @@ class QuickSort: Sort {
         arr[lower + 1] = center
         return lower + 1
     }
-    
-    static func main() {
+
+    static func routine() {
         let quickSort = QuickSort()
         
         let value: UInt32 = 1000000
@@ -56,4 +56,3 @@ class QuickSort: Sort {
         print("Quick sort \(value) int values use \(Date().timeIntervalSince(date))s")
     }
 }
-

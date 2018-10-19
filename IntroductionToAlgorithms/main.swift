@@ -7,4 +7,5 @@
 //
 
 import Foundation
-import Cocoa
+
+CutRod.routine()
