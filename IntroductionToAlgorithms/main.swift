@@ -8,4 +8,4 @@
 
 import Foundation
 
-MatrixChainOrder.routine()
+LCS.routine()

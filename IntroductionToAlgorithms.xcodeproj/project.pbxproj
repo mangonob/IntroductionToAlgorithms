@@ -15,6 +15,7 @@
 		4A7236C720F277FA009BD692 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7236C620F277FA009BD692 /* main.swift */; };
 		4A7236CE20F27985009BD692 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7236CD20F27985009BD692 /* Sort.swift */; };
 		4A7E44C7223B3AA000D147BB /* MatrixChainOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7E44C6223B3AA000D147BB /* MatrixChainOrder.swift */; };
+		4A7E44C9223B923000D147BB /* LongestCommonSubsequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7E44C8223B923000D147BB /* LongestCommonSubsequence.swift */; };
 		4ABDFE092160D148001F851C /* CGUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABDFE082160D148001F851C /* CGUtilities.swift */; };
 		4AD1544A2179A85600891212 /* CutRod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD154492179A85600891212 /* CutRod.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		4A7236C620F277FA009BD692 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4A7236CD20F27985009BD692 /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
 		4A7E44C6223B3AA000D147BB /* MatrixChainOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixChainOrder.swift; sourceTree = "<group>"; };
+		4A7E44C8223B923000D147BB /* LongestCommonSubsequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongestCommonSubsequence.swift; sourceTree = "<group>"; };
 		4ABDFE082160D148001F851C /* CGUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGUtilities.swift; sourceTree = "<group>"; };
 		4AD154492179A85600891212 /* CutRod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutRod.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,12 +77,12 @@
 			path = Sorting;
 			sourceTree = "<group>";
 		};
-		4A27BF81215F172C003C8519 /* Computational Geometry */ = {
+		4A27BF81215F172C003C8519 /* ComputationalGeometry */ = {
 			isa = PBXGroup;
 			children = (
 				4ABDFE082160D148001F851C /* CGUtilities.swift */,
 			);
-			path = "Computational Geometry";
+			path = ComputationalGeometry;
 			sourceTree = "<group>";
 		};
 		4A7236BA20F277FA009BD692 = {
@@ -109,7 +111,7 @@
 				4A1D0139223A3B54005BAFCC /* Utilities.swift */,
 				4A1D0134223A2C3B005BAFCC /* README.md */,
 				4AD154482179A82B00891212 /* DynamicProgramming */,
-				4A27BF81215F172C003C8519 /* Computational Geometry */,
+				4A27BF81215F172C003C8519 /* ComputationalGeometry */,
 			);
 			path = IntroductionToAlgorithms;
 			sourceTree = "<group>";
@@ -119,6 +121,7 @@
 			children = (
 				4AD154492179A85600891212 /* CutRod.swift */,
 				4A7E44C6223B3AA000D147BB /* MatrixChainOrder.swift */,
+				4A7E44C8223B923000D147BB /* LongestCommonSubsequence.swift */,
 			);
 			path = DynamicProgramming;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				4A4A972921106B710034EE5A /* RedBlackTree.swift in Sources */,
 				4ABDFE092160D148001F851C /* CGUtilities.swift in Sources */,
 				4A7E44C7223B3AA000D147BB /* MatrixChainOrder.swift in Sources */,
+				4A7E44C9223B923000D147BB /* LongestCommonSubsequence.swift in Sources */,
 				4A1D0138223A2DBB005BAFCC /* Protocol.swift in Sources */,
 				4A7236CE20F27985009BD692 /* Sort.swift in Sources */,
 				4A5456992105686100332161 /* BinarySearchTree.swift in Sources */,
