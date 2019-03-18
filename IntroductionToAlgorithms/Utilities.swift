@@ -13,3 +13,30 @@ func time(_ label: String, handler: () -> Void) {
     handler()
     print(String(format: "\(label) use %fs.", Date().timeIntervalSince(current)))
 }
+
+protocol PrettyPrint {
+    var prettyDescription: String { get }
+}
+
+func pprint(_ items: [PrettyPrint])  {
+    for item in items {
+        print(item.prettyDescription)
+    }
+}
+
+extension Array: PrettyPrint where Element: PrettyPrint {
+    var prettyDescription: String {
+        var description = "[\n"
+        for item in self {
+            description.append("\(item.prettyDescription),\n")
+        }
+        description.append("]")
+        return description
+    }
+}
+
+extension Int: PrettyPrint {
+    var prettyDescription: String {
+        return description
+    }
+}

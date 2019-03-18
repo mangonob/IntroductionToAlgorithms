@@ -8,4 +8,4 @@
 
 import Foundation
 
-LPS.routine()
+ActivitySelector.routine()
