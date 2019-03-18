@@ -8,4 +8,4 @@
 
 import Foundation
 
-LCS.routine()
+LPS.routine()

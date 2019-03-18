@@ -19,11 +19,11 @@ enum Arrow: String, CustomStringConvertible {
     }
 }
 
-class LCS {
+class LCS: Routine {
     private var s1: [Character]
     private var s2: [Character]
-    private var results: [[Int]]
-    private var solves: [[Arrow]]
+    private (set) var results: [[Int]]
+    private (set) var solves: [[Arrow]]
     
     init(_ s1: [Character], _ s2: [Character]) {
         self.s1 = s1
@@ -61,12 +61,28 @@ class LCS {
         }
         // End dynamic programming
     }
-}
-
-extension LCS: Routine {
-    static func routine() {
+    
+    func subsequence() -> String {
+        return subsequence(s1.count, s2.count)
+    }
+    
+    private func subsequence(_ idx1: Int, _ idx2: Int) -> String {
+        switch solves[idx1][idx2] {
+        case .left:
+            return subsequence(idx1 - 1, idx2)
+        case .up:
+            return subsequence(idx1, idx2 - 1)
+        case .leftUp:
+            return subsequence(idx1 - 1, idx2 - 1) + String(s1[idx1 - 1])
+        case .none:
+            return ""
+        }
+    }
+    
+    class func routine() {
         let lcs = LCS(["A", "B", "C", "B", "D", "A", "B"], ["B", "D", "C", "A", "B", "A"])
         print(lcs.results)
         print(lcs.solves)
+        print(lcs.subsequence())
     }
 }
