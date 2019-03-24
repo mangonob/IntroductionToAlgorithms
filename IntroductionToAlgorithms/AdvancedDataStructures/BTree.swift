@@ -53,7 +53,7 @@ class BTree: CustomStringConvertible {
         z.isLeaf = y.isLeaf
         z.n = t - 1
         
-        for j in 0..<(t - 1) {
+        for j in 0 <<< t - 2 {
             z.key[j] = y.key[t + j]
         }
         
@@ -65,15 +65,15 @@ class BTree: CustomStringConvertible {
         
         y.n = t - 1
         
-        for j in (index + 1)..<n {
+        for j in index + 1 <<< n {
             c[j + 1]  = c[j]
         }
         c[index + 1] = z
         
-        for j in index..<n {
+        for j in index <<< n - 1 {
             key[j + 1] = key[j]
         }
-        key[index] = y.key[index]
+        key[index] = y.key[t - 1]
         
         n += 1
 
@@ -98,9 +98,29 @@ class BTree: CustomStringConvertible {
     }
     
     private func insetNotFull(_ key: Int) {
+        var i = n - 1
+        
         if isLeaf {
+            while i >= 0 && key < self.key[i] {
+                self.key[i + 1] = self.key[i]
+                i -= 1
+            }
+            self.key[i + 1] = key
+            n += 1
             write()
         } else {
+            while i >= 0 && key < self.key[i] {
+                i -= 1
+            }
+            i += 1
+            c[i].read()
+            if c[i].n == 2 * t - 1 {
+                splitChild(i)
+                if key > self.key[i] {
+                    i += 1
+                }
+            }
+            c[i].insetNotFull(key)
         }
     }
 
@@ -155,7 +175,11 @@ extension BTree {
 
 extension BTree: Routine {
     static func routine() {
-        let tree = BTree.create()
-        print(tree)
+        var tree = BTree.create()
+        time("Inset element into B-Tree") {
+            for i in 0..<1000000 {
+                tree = tree.inset(i)
+            }
+        }
     }
 }
