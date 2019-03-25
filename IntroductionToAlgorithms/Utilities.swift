@@ -61,3 +61,15 @@ extension Int {
         }
     }
 }
+
+func randf() -> Double {
+    return Double(arc4random()) / Double(UInt32.max)
+}
+
+func rand(from: Int, to: Int) -> Int {
+    return Int(Double(to - from) * randf()) + from
+}
+
+func identifier(_ x: AnyObject) -> Int {
+    return Int(bitPattern: ObjectIdentifier(x))
+}
