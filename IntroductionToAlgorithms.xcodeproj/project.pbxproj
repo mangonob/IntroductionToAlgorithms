@@ -11,6 +11,7 @@
 		4A1D013A223A3B54005BAFCC /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1D0139223A3B54005BAFCC /* Utilities.swift */; };
 		4A4A972921106B710034EE5A /* RedBlackTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A972821106B710034EE5A /* RedBlackTree.swift */; };
 		4A5456992105686100332161 /* BinarySearchTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5456982105686100332161 /* BinarySearchTree.swift */; };
+		4A5C20DE224B700100447B71 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5C20DD224B700100447B71 /* Stack.swift */; };
 		4A5DC48F2122D2800063D8F9 /* TreapTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5DC48E2122D2800063D8F9 /* TreapTree.swift */; };
 		4A7236C720F277FA009BD692 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7236C620F277FA009BD692 /* main.swift */; };
 		4A7236CE20F27985009BD692 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7236CD20F27985009BD692 /* Sort.swift */; };
@@ -43,6 +44,7 @@
 		4A1D0139223A3B54005BAFCC /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		4A4A972821106B710034EE5A /* RedBlackTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedBlackTree.swift; sourceTree = "<group>"; };
 		4A5456982105686100332161 /* BinarySearchTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarySearchTree.swift; sourceTree = "<group>"; };
+		4A5C20DD224B700100447B71 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		4A5DC48E2122D2800063D8F9 /* TreapTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreapTree.swift; sourceTree = "<group>"; };
 		4A7236C320F277FA009BD692 /* IntroductionToAlgorithms */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = IntroductionToAlgorithms; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A7236C620F277FA009BD692 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -95,6 +97,14 @@
 			path = ComputationalGeometry;
 			sourceTree = "<group>";
 		};
+		4A5C20DA224B6F1500447B71 /* AmortizedAnalysis */ = {
+			isa = PBXGroup;
+			children = (
+				4A5C20DD224B700100447B71 /* Stack.swift */,
+			);
+			path = AmortizedAnalysis;
+			sourceTree = "<group>";
+		};
 		4A7236BA20F277FA009BD692 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +128,7 @@
 				4A7236C620F277FA009BD692 /* main.swift */,
 				4A1D0137223A2DBB005BAFCC /* Protocol.swift */,
 				4A1D0139223A3B54005BAFCC /* Utilities.swift */,
+				4A5C20DA224B6F1500447B71 /* AmortizedAnalysis */,
 				4AB070D1224237250049F8F2 /* AdvancedDataStructures */,
 				4A1D0136223A2D9F005BAFCC /* Sorting */,
 				4A1D0135223A2D7D005BAFCC /* DataStructures */,
@@ -210,6 +221,7 @@
 				4A7236C720F277FA009BD692 /* main.swift in Sources */,
 				4A4A972921106B710034EE5A /* RedBlackTree.swift in Sources */,
 				4AD6A1B9223F69D700589B14 /* TravelingSalesmanProblem.swift in Sources */,
+				4A5C20DE224B700100447B71 /* Stack.swift in Sources */,
 				4ABDFE092160D148001F851C /* CGUtilities.swift in Sources */,
 				4A7E44C7223B3AA000D147BB /* MatrixChainOrder.swift in Sources */,
 				4AA1ABCD2240C5F600424D7C /* ActivitySelector.swift in Sources */,

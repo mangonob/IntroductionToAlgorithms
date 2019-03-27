@@ -8,10 +8,13 @@
 
 import Foundation
 
-func time(_ label: String, handler: () -> Void) {
+@discardableResult
+func time(_ label: String, handler: () -> Void) -> TimeInterval {
     let current = Date()
     handler()
-    print(String(format: "\(label) use %fs.", Date().timeIntervalSince(current)))
+    let time = Date().timeIntervalSince(current)
+    print(String(format: "\(label) used %fs.", time))
+    return time
 }
 
 protocol PrettyPrint {
