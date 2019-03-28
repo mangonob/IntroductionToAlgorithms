@@ -17,6 +17,7 @@
 		4A7236CE20F27985009BD692 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7236CD20F27985009BD692 /* Sort.swift */; };
 		4A7E44C7223B3AA000D147BB /* MatrixChainOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7E44C6223B3AA000D147BB /* MatrixChainOrder.swift */; };
 		4A7E44C9223B923000D147BB /* LongestCommonSubsequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7E44C8223B923000D147BB /* LongestCommonSubsequence.swift */; };
+		4A96B41F224C960C00013C89 /* FBHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A96B41E224C960C00013C89 /* FBHeap.swift */; };
 		4AA1ABCD2240C5F600424D7C /* ActivitySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA1ABCC2240C5F600424D7C /* ActivitySelector.swift */; };
 		4AB070D3224237660049F8F2 /* BTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB070D2224237660049F8F2 /* BTree.swift */; };
 		4ABDFE092160D148001F851C /* CGUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABDFE082160D148001F851C /* CGUtilities.swift */; };
@@ -51,6 +52,7 @@
 		4A7236CD20F27985009BD692 /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
 		4A7E44C6223B3AA000D147BB /* MatrixChainOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixChainOrder.swift; sourceTree = "<group>"; };
 		4A7E44C8223B923000D147BB /* LongestCommonSubsequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongestCommonSubsequence.swift; sourceTree = "<group>"; };
+		4A96B41E224C960C00013C89 /* FBHeap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBHeap.swift; sourceTree = "<group>"; };
 		4AA1ABCC2240C5F600424D7C /* ActivitySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitySelector.swift; sourceTree = "<group>"; };
 		4AB070D2224237660049F8F2 /* BTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTree.swift; sourceTree = "<group>"; };
 		4ABDFE082160D148001F851C /* CGUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGUtilities.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				4AB070D2224237660049F8F2 /* BTree.swift */,
+				4A96B41E224C960C00013C89 /* FBHeap.swift */,
 			);
 			path = AdvancedDataStructures;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				4AA1ABCD2240C5F600424D7C /* ActivitySelector.swift in Sources */,
 				4A7E44C9223B923000D147BB /* LongestCommonSubsequence.swift in Sources */,
 				4A1D0138223A2DBB005BAFCC /* Protocol.swift in Sources */,
+				4A96B41F224C960C00013C89 /* FBHeap.swift in Sources */,
 				4AB070D3224237660049F8F2 /* BTree.swift in Sources */,
 				4AD6A1B7223F4F8B00589B14 /* LongestPalindromeSubsequence.swift in Sources */,
 				4A7236CE20F27985009BD692 /* Sort.swift in Sources */,
