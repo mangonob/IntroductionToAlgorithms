@@ -137,6 +137,7 @@ class FBHeap: CustomStringConvertible {
         n += 1
     }
     
+    @discardableResult
     func extractMin() -> Int? {
         let z = self.min
         
@@ -220,6 +221,47 @@ class FBHeap: CustomStringConvertible {
         }
     }
     
+    fileprivate func decrease(_ node: FBNode, key: Int) {
+        precondition(key <= node.key, "New key \(key) is greater than current key \(node.key)")
+        
+        node.key = key
+        let y = node.parent
+        if let y = y, key < y.key {
+            cut(node, from: y)
+            cascadingCut(y)
+        }
+        
+        if node.key < self.min!.key {
+            self.min = node
+        }
+    }
+
+    fileprivate func cut(_ node: FBNode, from: FBNode) {
+        node.parent = nil
+        from.degree -= 1
+        
+        node.left = node
+        node.right = node
+        node.isMarked = false
+        self.min?.insert(node)
+    }
+    
+    fileprivate func cascadingCut(_ node: FBNode) {
+        if let z = node.parent {
+            if z.isMarked {
+                cut(node, from: z)
+                cascadingCut(z)
+            } else {
+                z.isMarked = true
+            }
+        }
+    }
+
+    fileprivate func remove(_ node: FBNode) {
+        decrease(node, key: .min)
+        extractMin()
+    }
+
     var description: String {
         return min?.brothers().map { $0.description }.joined(separator: ", ") ?? "<Empty fabonacci heap>"
     }
@@ -235,7 +277,7 @@ extension FBHeap: Routine {
         }
         
         print(heap)
-        
+
         for _ in 1000 >>> 1 {
             print(heap.extractMin() ?? 0)
             print(heap)
