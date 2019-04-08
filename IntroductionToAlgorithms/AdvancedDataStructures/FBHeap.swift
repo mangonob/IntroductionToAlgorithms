@@ -63,6 +63,26 @@ fileprivate class FBNode: CustomStringConvertible {
         node.isMarked = false
         degree += 1
     }
+    
+    func swap(with node: FBNode) {
+        let t = key
+        key = node.key
+        node.key = t
+        
+        let mark = isMarked
+        isMarked = node.isMarked
+        node.isMarked = mark
+        
+        let d = degree
+        degree = node.degree
+        node.degree = d
+        
+        let c = child
+        child = node.child
+        child?.parent = self
+        node.child = c
+        c?.parent = node
+    }
 
     var description: String {
         var description = ""
@@ -154,9 +174,7 @@ class FBHeap: CustomStringConvertible {
             
             while let y = A[d] {
                 if x.key > y.key {
-                    let t = x.key
-                    x.key = y.key
-                    y.key = t
+                    x.swap(with: y)
                 }
                 
                 x.link(with: y)
