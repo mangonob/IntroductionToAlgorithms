@@ -8,4 +8,4 @@
 
 import Foundation
 
-FBHeap.routine()
+LinkedDisjointSet.routine()
