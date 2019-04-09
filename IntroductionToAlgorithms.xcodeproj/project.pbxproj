@@ -26,6 +26,7 @@
 		4AD6A1B5223F4B0100589B14 /* LongestIncreasingSubsequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD6A1B4223F4B0100589B14 /* LongestIncreasingSubsequence.swift */; };
 		4AD6A1B7223F4F8B00589B14 /* LongestPalindromeSubsequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD6A1B6223F4F8B00589B14 /* LongestPalindromeSubsequence.swift */; };
 		4AD6A1B9223F69D700589B14 /* TravelingSalesmanProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD6A1B8223F69D700589B14 /* TravelingSalesmanProblem.swift */; };
+		4AE0DA73225C4BA3008EEAFB /* DisjointSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE0DA72225C4BA3008EEAFB /* DisjointSet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,6 +63,7 @@
 		4AD6A1B4223F4B0100589B14 /* LongestIncreasingSubsequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongestIncreasingSubsequence.swift; sourceTree = "<group>"; };
 		4AD6A1B6223F4F8B00589B14 /* LongestPalindromeSubsequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongestPalindromeSubsequence.swift; sourceTree = "<group>"; };
 		4AD6A1B8223F69D700589B14 /* TravelingSalesmanProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelingSalesmanProblem.swift; sourceTree = "<group>"; };
+		4AE0DA72225C4BA3008EEAFB /* DisjointSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisjointSet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				4AB070D2224237660049F8F2 /* BTree.swift */,
 				4A96B41E224C960C00013C89 /* FBHeap.swift */,
 				4A444AFA225B515400168DB5 /* LinkedDisjointSet.swift */,
+				4AE0DA72225C4BA3008EEAFB /* DisjointSet.swift */,
 			);
 			path = AdvancedDataStructures;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				4A1D0138223A2DBB005BAFCC /* Protocol.swift in Sources */,
 				4A96B41F224C960C00013C89 /* FBHeap.swift in Sources */,
 				4AB070D3224237660049F8F2 /* BTree.swift in Sources */,
+				4AE0DA73225C4BA3008EEAFB /* DisjointSet.swift in Sources */,
 				4AD6A1B7223F4F8B00589B14 /* LongestPalindromeSubsequence.swift in Sources */,
 				4A7236CE20F27985009BD692 /* Sort.swift in Sources */,
 				4AD6A1B5223F4B0100589B14 /* LongestIncreasingSubsequence.swift in Sources */,

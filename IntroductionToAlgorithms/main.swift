@@ -8,4 +8,4 @@
 
 import Foundation
 
-LinkedDisjointSet.routine()
+DisjointSet.routine()
