@@ -64,6 +64,7 @@ class LinkedSet: CustomStringConvertible {
 class LinkedDisjointSet: CustomStringConvertible {
     var linked: LinkedSet?
 
+    @discardableResult
     func makeSet(_ key: Int) -> LinkedSetNode {
         let node = LinkedSetNode()
         node.key = key
@@ -117,12 +118,12 @@ class LinkedDisjointSet: CustomStringConvertible {
     func remove(_ set: LinkedSet) {
         set.remove()
         
-        if set === linked {
-            linked = set.right
-        }
-        
         if set.right === set  {
             set.right = nil
+        }
+        
+        if set === linked {
+            linked = set.right
         }
     }
     
