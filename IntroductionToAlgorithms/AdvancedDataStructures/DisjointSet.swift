@@ -70,11 +70,13 @@ class DisjointSet: CustomStringConvertible {
     }
 
     func find(_ node: Node) -> Node {
-        var root = node
-        while root.parent !== nil && root.parent !== root {
-            root = root.parent!
+        if node.parent !== node {
+            let root = find(node.parent!)
+            remove(node)
+            root.link(node)
         }
-        return root
+        
+        return node.parent!
     }
     
     var description: String {
@@ -146,10 +148,23 @@ extension DisjointSet: Routine {
         let node1 = set.makeSet(1)
         let node2 = set.makeSet(2)
         let node3 = set.makeSet(3)
+        let node4 = set.makeSet(4)
+        let node5 = set.makeSet(5)
+        let node6 = set.makeSet(6)
+        let node7 = set.makeSet(7)
+        
         print(set)
         set.union(node1, otherNode: node2)
         print(set)
         set.union(node1, otherNode: node3)
+        print(set)
+        set.union(node1, otherNode: node4)
+        print(set)
+        set.union(node1, otherNode: node5)
+        print(set)
+        set.union(node1, otherNode: node6)
+        print(set)
+        set.union(node1, otherNode: node7)
         print(set)
     }
 }
