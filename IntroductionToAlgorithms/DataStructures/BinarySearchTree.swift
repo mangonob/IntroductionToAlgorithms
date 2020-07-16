@@ -3,7 +3,7 @@
 //  IntroductionToAlgorithms
 //
 //  Created by 高炼 on 2018/7/23.
-//  Copyright © 2018年 BaiYiYuan. All rights reserved.
+//  Copyright © 2018年 mangonob. All rights reserved.
 //
 
 import Foundation
