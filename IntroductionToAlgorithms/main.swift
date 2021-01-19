@@ -8,4 +8,9 @@
 
 import Foundation
 
-SortRoutine.routine()
+//FBHeap.routine()
+var i = 0
+while i < 100 {
+    print(rand(from: 0, to: 10))
+    i += 1
+}

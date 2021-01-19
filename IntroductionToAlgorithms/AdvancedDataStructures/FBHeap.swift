@@ -16,14 +16,7 @@ fileprivate class FBNode: CustomStringConvertible {
     var isMarked: Bool = false
     var degree: Int = 0
     var key: Int = 0
-    
-    deinit {
-        print("Deinit \(key)")
-    }
 
-    init() {
-    }
-    
     func insert(_ node: FBNode) {
         let right = self.right
         self.right = node
@@ -114,9 +107,6 @@ class FBHeap: CustomStringConvertible {
     
     deinit {
         min?.right = nil
-    }
-    
-    init() {
     }
     
     func insert(_ key: Int) {

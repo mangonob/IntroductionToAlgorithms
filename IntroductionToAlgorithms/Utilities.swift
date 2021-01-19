@@ -65,12 +65,12 @@ extension Int {
     }
 }
 
-func randf() -> Double {
-    return Double(arc4random()) / Double(UInt32.max)
-}
-
 func rand(from: Int, to: Int) -> Int {
-    return Int(Double(to - from) * randf()) + from
+    if (from <= to) {
+        return Int(arc4random()) % (to + 1 - from)  + from
+    } else {
+        return Int(arc4random()) % (from + 1 - to)  + to
+    }
 }
 
 func identifier(_ x: AnyObject) -> Int {

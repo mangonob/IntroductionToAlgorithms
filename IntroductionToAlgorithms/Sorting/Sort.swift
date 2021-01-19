@@ -31,6 +31,7 @@ struct SortRoutine: Routine {
         InsertSortRoutine.routine()
         QuickSortRoutine.routine()
         MergeSortRoutine.routine()
+        HeapSortRoutine.routine()
         ArraySortRoutine.routine()
     }
 }
